@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inscrição FisioLar — Curso de Fisioterapia Domiciliar</title>
+<meta name="description" content="Inscrição da 3ª turma do FisioLar — 5 e 6 de dezembro. Capacitando para transformar vidas no conforto do lar.">
+<meta property="og:title" content="Inscrição FisioLar — A sua virada de chave começa aqui!">
+<meta property="og:description" content="3ª turma · 5 e 6 de dezembro · Curso de Fisioterapia Domiciliar com Mikaelly Santos">
+<meta property="og:image" content="banner.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#354A4B; --verde-2:#4E6A69; --salvia:#76907C; --menta:#DCF1DE; --menta-2:#EEF8EF;
+  --ouro:#C9952A; --ouro-2:#E7C463; --ouro-claro:#FBF3DE;
+  --texto:#24302F; --texto-2:#4F5E5C; --cinza:#86928F; --linha:#E1E8E2;
+  --fundo:#F4F8F4; --branco:#FFFFFF; --erro:#C8324B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* Banner + abertura */
+.banner{display:block;width:100%;height:auto;aspect-ratio:2250/400;object-fit:cover;background:var(--menta)}
+@media (max-width:640px){.banner{aspect-ratio:auto;height:118px;object-position:center}}
+.abertura{background:var(--verde);color:#fff;padding:36px 16px 92px;text-align:center;position:relative;overflow:hidden}
+.abertura::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:120%;background:radial-gradient(closest-side,rgba(118,144,124,.35),transparent);pointer-events:none}
+.abertura-in{max-width:760px;margin:0 auto;position:relative}
+.selo{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro-2);border:1px solid rgba(231,196,99,.45);border-radius:999px;padding:6px 14px}
+.abertura h1{font-size:clamp(26px,6vw,44px);font-weight:800;line-height:1.12;margin-top:18px;letter-spacing:-.01em}
+.abertura h1 .dourado{background:linear-gradient(100deg,#D5A534 0%,#F2DC8E 45%,#C9952A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.abertura p{color:#C9D6D2;margin:14px auto 0;max-width:560px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:500}
+.chip svg{width:15px;height:15px;color:var(--ouro-2)}
+
+/* Cartão */
+.cartao{max-width:820px;margin:-60px auto 36px;background:var(--branco);border-radius:20px;box-shadow:0 20px 50px -22px rgba(36,48,47,.3);overflow:hidden;position:relative}
+@media (max-width:860px){.cartao{margin-left:16px;margin-right:16px}}
+
+.etapas{display:flex;border-bottom:1px solid var(--linha)}
+.etapa{flex:1;display:flex;align-items:center;gap:10px;padding:18px 24px;font-size:13px;font-weight:600;color:var(--cinza);position:relative}
+.etapa .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--fundo);font-weight:700;font-size:13px;flex:none}
+.etapa.ativa{color:var(--texto)}
+.etapa.ativa .n{background:var(--verde);color:#fff}
+.etapa.feita .n{background:var(--menta);color:var(--verde)}
+.etapa.ativa::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,var(--verde),var(--salvia))}
+@media (max-width:560px){.etapa{padding:14px 16px;font-size:12px}}
+
+.passo{display:none;padding:32px}
+.passo.ativo{display:block}
+@media (max-width:560px){.passo{padding:24px 16px}}
+.passo-tit{font-size:20px;font-weight:700}
+.passo-sub{color:var(--texto-2);font-size:14px;margin-top:4px;max-width:620px}
+
+.secao{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--salvia);margin:28px 0 14px;display:flex;align-items:center;gap:10px}
+.secao::after{content:"";flex:1;height:1px;background:var(--linha)}
+
+.grade{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.grade .inteiro{grid-column:1/-1}
+@media (max-width:640px){.grade{grid-template-columns:1fr}}
+
+.campo label.rot{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.ob{color:var(--ouro)}
+.campo .dica{display:block;font-size:12px;color:var(--cinza);font-weight:500;margin:-3px 0 6px}
+.campo input:not([type=checkbox]):not([type=radio]),.campo select{width:100%;font:inherit;font-size:14px;color:var(--texto);background:var(--fundo);border:1.5px solid transparent;border-radius:12px;padding:12px 14px;outline:none;transition:border-color .15s,background .15s;appearance:none}
+.campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234F5E5C' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.campo input::placeholder{color:#A7B1AE}
+.campo input:focus,.campo select:focus{border-color:var(--salvia);background:#fff}
+.campo.erro input:not([type=checkbox]):not([type=radio]),.campo.erro select,.campo.erro .upload{border-color:var(--erro);background:#FDF3F5}
+.campo .msg{display:none;font-size:12px;color:var(--erro);margin-top:6px;font-weight:500}
+.campo.erro .msg{display:block}
+
+/* Opções de pagamento */
+.opcoes{display:grid;gap:10px}
+.opcao{display:flex;align-items:center;gap:14px;border:1.5px solid var(--linha);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s;background:#fff}
+.opcao:hover{border-color:var(--salvia)}
+.opcao input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border-radius:50%;border:2px solid #B9C7BE;flex:none;transition:.15s;cursor:pointer}
+.opcao input:checked{border:6px solid var(--verde)}
+.opcao:has(input:checked){border-color:var(--verde);background:var(--menta-2)}
+.opcao .info{flex:1;min-width:0}
+.opcao .nome{font-weight:600;font-size:14px}
+.opcao .det{font-size:12px;color:var(--cinza)}
+.opcao .valor{font-weight:700;font-size:15px;color:var(--verde);white-space:nowrap}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A6416;background:var(--ouro-claro);border-radius:6px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.campo.erro .opcao{border-color:#E7A9B4}
+
+/* Bloco de instrução de pagamento */
+.instrucao{display:none;margin-top:16px;border-radius:14px;padding:18px;background:var(--ouro-claro);border:1px solid #EFDDAE;font-size:13px;color:var(--texto-2)}
+.instrucao.ativo{display:block}
+.instrucao h3{font-size:14px;font-weight:700;color:var(--texto);margin-bottom:8px}
+.instrucao p+p,.instrucao p+.linha-pix,.instrucao .linha-pix+p{margin-top:10px}
+.linha-pix{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chave{flex:1;min-width:0;font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#fff;border:1px dashed #D9BF7C;border-radius:10px;padding:10px 12px;word-break:break-all;color:var(--texto)}
+.btn-mini{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;background:var(--verde);color:#fff;display:inline-flex;align-items:center;gap:6px;text-decoration:none;white-space:nowrap}
+.btn-mini.zap{background:#1F9E5A}
+.btn-mini svg{width:16px;height:16px}
+
+.upload{border:1.5px dashed #BFD0C3;border-radius:12px;background:var(--fundo);padding:22px;text-align:center;font-size:13px;color:var(--texto-2);cursor:pointer;transition:.15s}
+.upload:hover,.upload.arrastando{border-color:var(--salvia);background:var(--menta-2)}
+.upload b{color:var(--verde)}
+.upload .previa{display:none;align-items:center;gap:12px;justify-content:center}
+.upload .previa img{width:48px;height:48px;object-fit:cover;border-radius:8px;background:#fff}
+.upload.tem-arquivo .vazio{display:none}
+.upload.tem-arquivo .previa{display:flex}
+
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--texto-2);cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;width:22px;height:22px;flex:none;border:2px solid #BFD0C3;border-radius:6px;background:#fff center/14px no-repeat;cursor:pointer;transition:.15s}
+.check input:checked{background-color:var(--verde);border-color:var(--verde);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E")}
+.campo.erro .check input{border-color:var(--erro);background-color:#FDF3F5}
+
+.acoes{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:32px;padding-top:24px;border-top:1px solid var(--linha)}
+.btn{font:inherit;font-weight:700;font-size:14px;border:0;border-radius:12px;padding:14px 26px;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-prim{background:var(--verde);color:#fff}
+.btn-prim:hover{background:#2A3C3D}
+.btn-prim:disabled{opacity:.6;cursor:wait}
+.btn-sec{background:transparent;color:var(--texto-2)}
+.btn-sec:hover{color:var(--texto)}
+.btn-zap{background:#1F9E5A;color:#fff}
+.btn-zap:hover{background:#198A4D}
+.lgpd{font-size:12px;color:var(--cinza);display:flex;align-items:center;gap:6px}
+.lgpd svg{width:14px;height:14px}
+@media (max-width:420px){.acoes .lgpd{display:none}.acoes{justify-content:flex-end}}
+
+.sucesso{display:none;padding:52px 28px;text-align:center}
+.sucesso.ativo{display:block}
+.sucesso .icone{width:68px;height:68px;border-radius:50%;background:var(--menta);color:var(--verde);display:grid;place-items:center;margin:0 auto 20px}
+.sucesso h2{font-size:24px;font-weight:800}
+.sucesso p{color:var(--texto-2);max-width:460px;margin:10px auto 0;font-size:15px}
+.sucesso .btn{margin-top:24px}
+.sucesso small{display:block;margin-top:14px;color:var(--cinza);font-size:12px}
+
+.rodape{text-align:center;font-size:12px;color:var(--cinza);padding:0 16px 40px}
+.rodape a{color:var(--verde-2);font-weight:600;text-decoration:none}
+.spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:g .7s linear infinite;display:none}
+.btn.carregando .spin{display:inline-block}
+@keyframes g{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<img class="banner" src="banner.jpg" alt="FisioLar — Capacitando para transformar vidas no conforto do lar.">
+
+<header class="abertura">
+  <div class="abertura-in">
+    <span class="selo">Inscrição · 3ª turma</span>
+    <h1>A SUA VIRADA DE CHAVE <span class="dourado">COMEÇA AQUI!</span></h1>
+    <p>Curso de Fisioterapia Domiciliar com Mikaelly Santos. Preencha seus dados, escolha a forma de pagamento e garanta sua vaga.</p>
+    <div class="chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>5 e 6 de dezembro</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg>2 dias de imersão</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 010-4h12v4"/><path d="M4 6v12a2 2 0 002 2h14v-4"/><path d="M18 12a2 2 0 000 4h4v-4z"/></svg>R$ 360 · PIX ou cartão</span>
+    </div>
+  </div>
+</header>
+
+<main class="cartao">
+  <nav class="etapas" aria-label="Etapas">
+    <div class="etapa ativa" data-etapa="1"><span class="n">1</span><span>Seus dados</span></div>
+    <div class="etapa" data-etapa="2"><span class="n">2</span><span>Pagamento</span></div>
+  </nav>
+
+  <form id="form" novalidate>
+    <!-- ================= ETAPA 1 ================= -->
+    <section class="passo ativo" data-passo="1">
+      <h2 class="passo-tit">Seus dados</h2>
+      <p class="passo-sub">Usamos essas informações para confirmar sua vaga e falar com você sobre o curso.</p>
+
+      <div class="secao">Participante</div>
+      <div class="grade">
+        <div class="campo inteiro"><label class="rot" for="nome">Nome completo <span class="ob">*</span></label><span class="dica">Do jeito que deve sair no certificado</span><input id="nome" name="nome" required autocomplete="name"><span class="msg">Informe seu nome completo</span></div>
+        <div class="campo"><label class="rot" for="email">E-mail <span class="ob">*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="voce@email.com"><span class="msg">E-mail inválido</span></div>
+        <div class="campo"><label class="rot" for="whatsapp">WhatsApp <span class="ob">*</span></label><input id="whatsapp" name="whatsapp" required data-mascara="fone" inputmode="tel" autocomplete="tel" placeholder="(99) 99999-9999"><span class="msg">WhatsApp inválido</span></div>
+        <div class="campo"><label class="rot" for="perfil">Você é <span class="ob">*</span></label>
+          <select id="perfil" name="perfil" required>
+            <option value="">Selecionar opção…</option>
+            <option>Fisioterapeuta</option>
+            <option>Acadêmico(a) de Fisioterapia</option>
+          </select><span class="msg">Selecione uma opção</span></div>
+        <div class="campo"><label class="rot" for="cidade">Cidade/UF <span class="ob">*</span></label><input id="cidade" name="cidade_uf" required placeholder="Imperatriz/MA"><span class="msg">Informe cidade e UF</span></div>
+        <div class="campo"><label class="rot" for="instagram">Instagram</label><input id="instagram" name="instagram" placeholder="@seuperfil"></div>
+        <div class="campo"><label class="rot" for="origem">Como conheceu o FisioLar?</label>
+          <select id="origem" name="como_conheceu">
+            <option value="">Selecionar opção…</option>
+            <option>Instagram da Mikaelly</option>
+            <option>Anúncio no Instagram/Facebook</option>
+            <option>Indicação de amigo(a)</option>
+            <option>Faculdade / professor(a)</option>
+            <option>Grupo de WhatsApp</option>
+            <option>Outro</option>
+          </select></div>
+      </div>
+
+      <div class="acoes">
+        <span class="lgpd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Dados protegidos pela LGPD</span>
+        <button type="button" class="btn btn-prim" id="avancar">Continuar <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- ================= ETAPA 2 ================= -->
+    <section class="passo" data-passo="2">
+      <h2 class="passo-tit">Forma de pagamento</h2>
+      <p class="passo-sub">Escolha como prefere pagar. Depois do pagamento, anexe o comprovante aqui ou envie no WhatsApp.</p>
+
+      <div class="secao">Escolha uma opção</div>
+      <div class="campo" id="campoPagamento">
+        <div class="opcoes" id="opcoes"></div>
+        <span class="msg">Escolha uma forma de pagamento</span>
+
+        <div class="instrucao" id="instrucao"></div>
+      </div>
+
+      <div class="secao">Comprovante</div>
+      <div class="grade">
+        <div class="campo inteiro"><label class="rot">Comprovante de pagamento</label><span class="dica">Se já pagou, anexe aqui. Se preferir, pode enviar depois pelo WhatsApp.</span>
+          <div class="upload" id="upload" tabindex="0" role="button" aria-label="Enviar comprovante">
+            <div class="vazio">Solte o arquivo aqui ou <b>toque para anexar</b><br><small style="color:var(--cinza)">Imagem ou PDF · até 8 MB</small></div>
+            <div class="previa"><img id="previaImg" alt=""><span id="previaNome"></span></div>
+          </div>
+          <input type="file" id="comprovante" accept="image/*,.pdf" hidden>
+          <span class="msg">Arquivo acima de 8 MB</span>
+        </div>
+        <div class="campo inteiro"><label class="check"><input type="checkbox" name="aceite" required> <span>Confirmo que as informações estão corretas e autorizo o uso dos meus dados para a inscrição e a comunicação sobre o FisioLar, conforme a LGPD.</span></label><span class="msg">Marque para continuar</span></div>
+      </div>
+
+      <div class="acoes">
+        <button type="button" class="btn btn-sec" id="voltar">← Voltar</button>
+        <button type="submit" class="btn btn-prim" id="enviar"><span class="spin"></span><span class="txt">Confirmar inscrição</span></button>
+      </div>
+    </section>
+
+    <section class="sucesso" id="sucesso">
+      <div class="icone"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h2>Inscrição recebida!</h2>
+      <p id="sucessoTxt">Sua vaga fica garantida assim que o pagamento for confirmado.</p>
+      <a class="btn btn-zap" id="sucessoZap" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg><span>Falar no WhatsApp</span></a>
+      <small id="sucessoNota"></small>
+    </section>
+  </form>
+</main>
+
+<p class="rodape">FisioLar · Capacitando para transformar vidas no conforto do lar · <a href="https://instagram.com/mikaelly.sants" target="_blank" rel="noopener">@mikaelly.sants</a></p>
+
+<script>
+// ====== CONFIGURAÇÃO ======
+// 1) Cole entre as aspas a URL do Web App do Google Apps Script (arquivo apps-script.gs).
+//    Enquanto estiver vazio, o formulário funciona em modo de teste (não envia nada).
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxhhpcQVh7d5SV4G4diXQdxAxdyaMKQk70mkETubbeARCf6u46DXejM1PaivpcU7zLW/exec";
+
+// 2) Dados de pagamento e contato
+const WHATSAPP = "5599984783637";
+const CHAVE_PIX = "fisiomikaelly.sants@gmail.com";
+
+// 3) Formas de pagamento (copiadas do formulário atual — ajuste valores aqui se mudarem)
+const PAGAMENTOS = [
+  { id:"pix_total",    nome:"PIX à vista",             det:"Pagamento integral",                         valor:"R$ 360,00", tipo:"pix",   tag:"Mais rápido" },
+  { id:"pix_50",       nome:"PIX — 50% de entrada",     det:"Metade agora para garantir a vaga",          valor:"R$ 180,00", tipo:"pix" },
+  { id:"cartao_total", nome:"Cartão — valor total",     det:"Link de pagamento enviado pelo WhatsApp",    valor:"R$ 360,00", tipo:"cartao" },
+  { id:"cartao_50",    nome:"Cartão — 50% de entrada",  det:"Link de pagamento enviado pelo WhatsApp",    valor:"R$ 149,90", tipo:"cartao" },
+  { id:"pix_cartao",   nome:"PIX + Cartão",             det:"Metade no PIX e metade no cartão",           valor:"50% R$ 149,90", tipo:"misto" },
+];
+
+// ================================================================
+const $ = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const form = $('#form');
+const so = v => v.replace(/\D/g,'');
+const zap = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const iconeZap = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>';
+
+// ---- Opções de pagamento
+$('#opcoes').innerHTML = PAGAMENTOS.map(p => `
+  <label class="opcao"><input type="radio" name="pagamento" value="${p.id}">
+    <span class="info"><span class="nome">${p.nome}${p.tag?`<span class="tag">${p.tag}</span>`:''}</span><br><span class="det">${p.det}</span></span>
+    <span class="valor">${p.valor}</span></label>`).join('');
+
+function blocoPix(){ return `<p class="linha-pix"><span class="chave" id="chavePix">${CHAVE_PIX}</span><button type="button" class="btn-mini" id="copiarPix">Copiar chave</button></p>`; }
+function blocoCartao(p){ return `<p><a class="btn-mini zap" target="_blank" rel="noopener" href="${zap(`Olá! Quero me inscrever no FisioLar e pagar no cartão (${p.nome} — ${p.valor}). Pode me enviar o link de pagamento?`)}">${iconeZap} Pedir link do cartão</a></p>`; }
+function atualizaInstrucao(){
+  const p = PAGAMENTOS.find(x => x.id === form.elements.pagamento.value); const box = $('#instrucao');
+  if(!p){ box.classList.remove('ativo'); return; }
+  let h = '';
+  if(p.tipo==='pix') h = `<h3>Pague ${p.valor} pelo PIX</h3><p>Chave PIX (e-mail):</p>${blocoPix()}<p>Depois de pagar, anexe o comprovante abaixo.</p>`;
+  if(p.tipo==='cartao') h = `<h3>Pagamento no cartão — ${p.valor}</h3><p>O link de pagamento é enviado pelo WhatsApp. Você pode confirmar a inscrição agora e pagar pelo link em seguida.</p>${blocoCartao(p)}`;
+  if(p.tipo==='misto') h = `<h3>PIX + Cartão</h3><p>Faça a parte do PIX com a chave abaixo e peça o link da parte do cartão no WhatsApp.</p>${blocoPix()}${blocoCartao(p)}`;
+  box.innerHTML = h; box.classList.add('ativo');
+  const b = $('#copiarPix'); if(b) b.addEventListener('click', async () => {
+    try{ await navigator.clipboard.writeText(CHAVE_PIX); }catch(e){ const r=document.createRange(); r.selectNodeContents($('#chavePix')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); }
+    b.textContent = 'Copiada ✓'; setTimeout(() => b.textContent = 'Copiar chave', 1800);
+  });
+}
+$$('input[name=pagamento]').forEach(r => r.addEventListener('change', () => { $('#campoPagamento').classList.remove('erro'); atualizaInstrucao(); }));
+
+// ---- Máscara de telefone
+const mascaras = { fone: v => { const d=so(v).slice(0,11); return d.length>10 ? d.replace(/(\d{2})(\d{5})(\d{0,4})/,'($1) $2-$3') : d.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3').replace(/\D+$/,''); } };
+$$('[data-mascara]').forEach(i => i.addEventListener('input', () => { i.value = mascaras[i.dataset.mascara](i.value); }));
+
+// ---- Validação
+function valida(campo){
+  if(campo.id==='campoPagamento'){ const ok=!!form.elements.pagamento.value; campo.classList.toggle('erro',!ok); return ok; }
+  const el = campo.querySelector('input:not([type=file]),select'); if(!el) return true;
+  let ok = true; const v = el.type==='checkbox' ? el.checked : el.value.trim();
+  if(el.required && !v) ok = false;
+  else if(v && el.type==='email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  else if(v && el.dataset.mascara==='fone') ok = so(v).length>=10;
+  else if(v && el.name==='nome') ok = v.split(/\s+/).length>=2;
+  campo.classList.toggle('erro', !ok); return ok;
+}
+$$('.campo').forEach(c => c.addEventListener('input', () => c.classList.contains('erro') && valida(c)));
+$$('.campo select, .campo input[type=checkbox]').forEach(el => el.addEventListener('change', () => valida(el.closest('.campo'))));
+
+// ---- Upload do comprovante
+const up = $('#upload'), inputArq = $('#comprovante'); let comprovante = null;
+up.addEventListener('click', () => inputArq.click());
+up.addEventListener('keydown', e => (e.key==='Enter'||e.key===' ') && (e.preventDefault(), inputArq.click()));
+['dragover','dragenter'].forEach(ev => up.addEventListener(ev, e => { e.preventDefault(); up.classList.add('arrastando'); }));
+['dragleave','drop'].forEach(ev => up.addEventListener(ev, e => { e.preventDefault(); up.classList.remove('arrastando'); }));
+up.addEventListener('drop', e => e.dataTransfer.files[0] && lerArquivo(e.dataTransfer.files[0]));
+inputArq.addEventListener('change', () => inputArq.files[0] && lerArquivo(inputArq.files[0]));
+function lerArquivo(f){
+  const campo = up.closest('.campo');
+  if(f.size > 8*1024*1024){ campo.classList.add('erro'); return; }
+  const r = new FileReader();
+  r.onload = () => { comprovante = { nome:f.name, tipo:f.type, base64:r.result.split(',')[1] };
+    const img = f.type.startsWith('image/'); $('#previaImg').src = img ? r.result : ''; $('#previaImg').style.display = img ? '' : 'none';
+    $('#previaNome').textContent = f.name; up.classList.add('tem-arquivo'); campo.classList.remove('erro'); };
+  r.readAsDataURL(f);
+}
+
+// ---- Etapas
+function irPara(n){
+  $$('.passo').forEach(p => p.classList.toggle('ativo', p.dataset.passo==n));
+  $$('.etapa').forEach(e => { e.classList.toggle('ativa', e.dataset.etapa==n); e.classList.toggle('feita', e.dataset.etapa<n); });
+  $('.cartao').scrollIntoView({behavior:'smooth'});
+}
+function validaPasso(n){
+  const p = $(`.passo[data-passo="${n}"]`);
+  const ok = $$('.campo', p).map(valida).every(Boolean);
+  if(!ok){ const e = $('.campo.erro', p); e && e.scrollIntoView({behavior:'smooth',block:'center'}); }
+  return ok;
+}
+$('#avancar').addEventListener('click', () => validaPasso(1) && irPara(2));
+$('#voltar').addEventListener('click', () => irPara(1));
+
+// ---- Envio
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if(!validaPasso(2)) return;
+  const btn = $('#enviar'); btn.disabled = true; btn.classList.add('carregando'); $('.txt',btn).textContent='Enviando…';
+  const pg = PAGAMENTOS.find(x => x.id === form.elements.pagamento.value);
+  const dados = Object.fromEntries(new FormData(form));
+  dados.pagamento = `${pg.nome} — ${pg.valor}`;
+  dados.aceite = 'Sim';
+  dados.enviado_em = new Date().toLocaleString('pt-BR');
+  dados.comprovante = comprovante;
+  try{
+    if(ENDPOINT){
+      await fetch(ENDPOINT, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(dados) });
+    } else {
+      console.log('Modo de teste — dados que seriam enviados:', {...dados, comprovante: comprovante && {nome:comprovante.nome}});
+      await new Promise(r => setTimeout(r, 700));
+    }
+    const primeiro = dados.nome.split(/\s+/)[0];
+    $('#sucessoTxt').textContent = comprovante
+      ? `Obrigada, ${primeiro}! Recebemos sua inscrição e o comprovante. Sua vaga será confirmada pelo WhatsApp.`
+      : `Obrigada, ${primeiro}! Agora é só concluir o pagamento e enviar o comprovante no WhatsApp para garantir sua vaga.`;
+    const msg = comprovante
+      ? `Olá! Acabei de fazer minha inscrição no FisioLar e anexei o comprovante. Nome: ${dados.nome}. Pagamento: ${dados.pagamento}.`
+      : `Olá! Acabei de fazer minha inscrição no FisioLar. Nome: ${dados.nome}. Pagamento: ${dados.pagamento}. Segue o comprovante:`;
+    $('#sucessoZap').href = zap(msg);
+    $('#sucessoZap span').textContent = comprovante ? 'Falar no WhatsApp' : 'Enviar comprovante no WhatsApp';
+    $('#sucessoNota').textContent = 'Nos vemos no FisioLar! 💚';
+    $$('.passo').forEach(p => p.classList.remove('ativo'));
+    $$('.etapa').forEach(x => { x.classList.remove('ativa'); x.classList.add('feita'); });
+    $('#sucesso').classList.add('ativo'); $('.cartao').scrollIntoView({behavior:'smooth'});
+  } catch(err){
+    alert('Não foi possível enviar agora. Verifique sua internet e tente de novo.');
+    btn.disabled = false; btn.classList.remove('carregando'); $('.txt',btn).textContent='Confirmar inscrição';
+  }
+});
+</script>
+</body>
+</html>
