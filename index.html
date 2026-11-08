@@ -249,7 +249,9 @@ const ENDPOINT = "https://script.google.com/macros/s/AKfycbxhhpcQVh7d5SV4G4diXQd
 
 // 2) Dados de pagamento e contato
 const WHATSAPP = "5599984783637";
-const CHAVE_PIX = "fisiomikaelly.sants@gmail.com";
+const CHAVE_PIX = "99984783637";            // copiada assim, só números
+const CHAVE_PIX_EXIBIDA = "(99) 98478-3637";
+const TITULAR_PIX = "MIKAELLY SANTOS DA SILVA";
 
 // 3) Formas de pagamento (copiadas do formulário atual — ajuste valores aqui se mudarem)
 const PAGAMENTOS = [
@@ -274,13 +276,13 @@ $('#opcoes').innerHTML = PAGAMENTOS.map(p => `
     <span class="info"><span class="nome">${p.nome}${p.tag?`<span class="tag">${p.tag}</span>`:''}</span><br><span class="det">${p.det}</span></span>
     <span class="valor">${p.valor}</span></label>`).join('');
 
-function blocoPix(){ return `<p class="linha-pix"><span class="chave" id="chavePix">${CHAVE_PIX}</span><button type="button" class="btn-mini" id="copiarPix">Copiar chave</button></p>`; }
+function blocoPix(){ return `<p>Chave PIX (celular):</p><p class="linha-pix"><span class="chave" id="chavePix">${CHAVE_PIX_EXIBIDA}</span><button type="button" class="btn-mini" id="copiarPix">Copiar chave</button></p><p>Titular: <b>${TITULAR_PIX}</b></p>`; }
 function blocoCartao(p){ return `<p><a class="btn-mini zap" target="_blank" rel="noopener" href="${zap(`Olá! Quero me inscrever no FisioLar e pagar no cartão (${p.nome} — ${p.valor}). Pode me enviar o link de pagamento?`)}">${iconeZap} Pedir link do cartão</a></p>`; }
 function atualizaInstrucao(){
   const p = PAGAMENTOS.find(x => x.id === form.elements.pagamento.value); const box = $('#instrucao');
   if(!p){ box.classList.remove('ativo'); return; }
   let h = '';
-  if(p.tipo==='pix') h = `<h3>Pague ${p.valor} pelo PIX</h3><p>Chave PIX (e-mail):</p>${blocoPix()}<p>Depois de pagar, anexe o comprovante abaixo.</p>`;
+  if(p.tipo==='pix') h = `<h3>Pague ${p.valor} pelo PIX</h3>${blocoPix()}<p>Depois de pagar, anexe o comprovante abaixo.</p>`;
   if(p.tipo==='cartao') h = `<h3>Pagamento no cartão — ${p.valor}</h3><p>O link de pagamento é enviado pelo WhatsApp. Você pode confirmar a inscrição agora e pagar pelo link em seguida.</p>${blocoCartao(p)}`;
   if(p.tipo==='misto') h = `<h3>PIX + Cartão</h3><p>Faça a parte do PIX com a chave abaixo e peça o link da parte do cartão no WhatsApp.</p>${blocoPix()}${blocoCartao(p)}`;
   box.innerHTML = h; box.classList.add('ativo');
