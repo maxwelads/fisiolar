@@ -136,6 +136,18 @@ body{font-family:'Poppins',system-ui,sans-serif;background:var(--fundo);color:va
 .btn.carregando .spin{display:inline-block}
 @keyframes g{to{transform:rotate(360deg)}}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '777256701726111');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=777256701726111&ev=PageView&noscript=1"/></noscript>
+<!-- Fim Meta Pixel -->
 </head>
 <body>
 
@@ -267,6 +279,9 @@ const $ = (s, c=document) => c.querySelector(s);
 const $$ = (s, c=document) => [...c.querySelectorAll(s)];
 const form = $('#form');
 const so = v => v.replace(/\D/g,'');
+const rastrear = (...a) => { try{ window.fbq && fbq(...a); }catch(e){} };
+const params = new URLSearchParams(location.search);
+const ORIGEM = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(k => params.get(k)).filter(Boolean).join(' / ') || (params.get('fbclid') ? 'meta (sem UTM)' : 'direto / orgânico');
 const zap = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 const iconeZap = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2z"/></svg>';
 
@@ -341,7 +356,12 @@ function validaPasso(n){
   if(!ok){ const e = $('.campo.erro', p); e && e.scrollIntoView({behavior:'smooth',block:'center'}); }
   return ok;
 }
-$('#avancar').addEventListener('click', () => validaPasso(1) && irPara(2));
+let checkoutEnviado = false;
+$('#avancar').addEventListener('click', () => {
+  if(!validaPasso(1)) return;
+  if(!checkoutEnviado){ rastrear('track','InitiateCheckout',{content_name:'FisioLar 3ª turma', value:360, currency:'BRL'}); checkoutEnviado = true; }
+  irPara(2);
+});
 $('#voltar').addEventListener('click', () => irPara(1));
 
 // ---- Envio
@@ -355,6 +375,7 @@ form.addEventListener('submit', async e => {
   dados.aceite = 'Sim';
   dados.enviado_em = new Date().toLocaleString('pt-BR');
   dados.comprovante = comprovante;
+  dados.origem = ORIGEM;
   try{
     if(ENDPOINT){
       await fetch(ENDPOINT, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(dados) });
@@ -362,6 +383,7 @@ form.addEventListener('submit', async e => {
       console.log('Modo de teste — dados que seriam enviados:', {...dados, comprovante: comprovante && {nome:comprovante.nome}});
       await new Promise(r => setTimeout(r, 700));
     }
+    rastrear('track','Lead',{content_name:'FisioLar 3ª turma', value:360, currency:'BRL'});
     const primeiro = dados.nome.split(/\s+/)[0];
     $('#sucessoTxt').textContent = comprovante
       ? `Obrigada, ${primeiro}! Recebemos sua inscrição e o comprovante. Sua vaga será confirmada pelo WhatsApp.`
